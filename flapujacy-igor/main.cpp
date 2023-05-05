@@ -5,6 +5,7 @@
 #include <string>
 
 #include "Igor.hpp"
+#include "Pipes.hpp"
 
 //Screen dimension constants
 const int SCREEN_WIDTH  = 1280;
@@ -23,6 +24,8 @@ int main(int argc, char* argv[]) {
 	Image igorImage = LoadImage("images/igor.png");
 	ImageResize(&igorImage, 96, 96);
 	Igor igor(LoadTextureFromImage(igorImage));
+
+	
 
 	while (!WindowShouldClose()) {
 		float deltaTime = GetFrameTime();
@@ -43,6 +46,8 @@ int main(int argc, char* argv[]) {
 			PHYSICS
 		*/
 		igor.move(deltaTime);
+
+
 		/*
 		*	DRAWING
 		*/

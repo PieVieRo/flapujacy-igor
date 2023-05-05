@@ -21,9 +21,15 @@
     <ClCompile Include="Igor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Pipes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Igor.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pipes.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
