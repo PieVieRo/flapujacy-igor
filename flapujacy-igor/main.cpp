@@ -25,10 +25,12 @@ int main(int argc, char* argv[]) {
 
 	Image igorImage = LoadImage("images/igor.png");
 	ImageResize(&igorImage, 96, 96);
+	SetWindowIcon(igorImage);
 	Igor igor(LoadTextureFromImage(igorImage));
 
-	Image ruryImage = LoadImage("images/kajdanki.jpg");
-	Pipes ruryTestowe(180, ruryImage);
+	std::vector<Pipes> rury = { };
+
+	float czasDoRury = ruraSpawn;
 
 	while (!WindowShouldClose()) {
 		float deltaTime = GetFrameTime();
@@ -50,14 +52,29 @@ int main(int argc, char* argv[]) {
 			PHYSICS
 		*/
 		igor.move(deltaTime);
-		ruryTestowe.move(deltaTime);
+		czasDoRury -= deltaTime;
+		if (czasDoRury <= 0) {
+			Image ruryImage = LoadImage("images/kajdanki.jpg");
+			Image ruryImageKopia = LoadImage("images/kajdanki.jpg");
+			rury.push_back(Pipes(180, &ruryImage, &ruryImageKopia));
+			czasDoRury = ruraSpawn;
+		}
+		for (int i = 0; i < rury.size(); i++) {
+			rury[i].move(deltaTime);
+			if (rury[i].checkOOB()) {
+				std::cout << "hejka :D" << std::endl;
+				rury.erase(rury.begin());
+			} 
+		}
 		/*
 		*	DRAWING
 		*/
 		BeginDrawing();
 
 		DrawTexture(domTexture, 0, 0, WHITE);
-		ruryTestowe.draw();
+		for (int i = 0; i < rury.size(); i++) {
+			rury[i].draw();
+		}
 		igor.draw();
 
 		EndDrawing();
