@@ -4,6 +4,9 @@
 class Pipes {
 public:
 	Pipes(int offset, Image ruryImage);
+	void move(float deltaTime);
+	void draw();
 private:
-	int rury_x, gornaRura_y, dolnaRura_y;
+	float rury_x, gornaRura_y, dolnaRura_y;
+	Texture2D gornaRuraTekstura, dolnaRuraTekstura;
 };
