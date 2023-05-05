@@ -25,6 +25,27 @@ int main(int argc, char* argv[]) {
 	Igor igor(LoadTextureFromImage(igorImage));
 
 	while (!WindowShouldClose()) {
+		float deltaTime = GetFrameTime();
+		/*
+			KEYBOARD
+		*/
+		if (igor.isAlive()) {
+			if (IsKeyPressed(KEY_UP)) {
+				igor.jump();
+			}
+		} else {
+			if (GetKeyPressed()) {
+				
+			}
+		}
+
+		/*
+			PHYSICS
+		*/
+		igor.move(deltaTime);
+		/*
+		*	DRAWING
+		*/
 		BeginDrawing();
 
 		ClearBackground(WHITE);
