@@ -26,6 +26,14 @@ void Igor::move(float deltaTime) {
 	if (this->y > 720 - 96)
 		this->y = 720 - 96;
 	return;
+}
 
+#include <iostream>
 
+bool Igor::collision(Pipes rura) {
+	if (!(this->x + 96 > rura.get_rury_x() && this->x < rura.get_rury_x() + 96)) {
+		return false;
+	}
+
+	return	!((this->y + 96 < rura.get_dolnaRura_y()) && (this->y > rura.get_dolnaRura_y() - 180));
 }

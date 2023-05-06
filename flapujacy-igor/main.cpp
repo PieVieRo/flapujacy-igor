@@ -11,7 +11,7 @@
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
 
-const float ruraSpawn = 5.0f;
+const float ruraSpawn = 50.0f;
 int wynik = 0;
 int najwyzszy = 0;
 
@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
 
 	std::vector<Pipes> rury = { };
 
-	float czasDoRury = ruraSpawn;
+	float czasDoRury = 2;
 
 	while (!WindowShouldClose()) {
 		float deltaTime = GetFrameTime();
@@ -63,6 +63,8 @@ int main(int argc, char* argv[]) {
 		}
 		for (int i = 0; i < rury.size(); i++) {
 			rury[i].move(deltaTime);
+			if (igor.collision(rury[i]))
+				std::cout << "OMG!!!! kolizja :D" << std::endl;
 			if (rury[i].checkOOB()) {
 				rury[i].unload();
 				rury.erase(rury.begin());

@@ -28,6 +28,14 @@ bool Pipes::checkOOB() {
 	return this->rury_x + 96 <= 0;
 }
 
+float Pipes::get_rury_x() {
+	return this->rury_x;
+}
+
+float Pipes::get_dolnaRura_y() {
+	return this->dolnaRura_y;
+}
+
 void Pipes::unload() {
 	UnloadTexture(gornaRuraTekstura);
 	UnloadTexture(dolnaRuraTekstura);

@@ -1,6 +1,8 @@
 #pragma once
 #include <raylib.h>
 
+#include "Pipes.hpp"
+
 class Igor {
 public:
 	Igor(Texture2D igorTexture);
@@ -8,6 +10,8 @@ public:
 	bool isAlive();
 	void jump();
 	void move(float deltaTime);
+	bool collision(Pipes rura);
+	void die();
 private:
 	Texture2D igorTexture;
 	float x, y;

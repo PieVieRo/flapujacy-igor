@@ -6,9 +6,10 @@ public:
 	Pipes(int offset, Image* ruryImage, Image* ruryImageKopia);
 	void move(float deltaTime);
 	void draw();
-	float get_x();
 	bool checkOOB();
 	void unload();
+	float get_rury_x();
+	float get_dolnaRura_y();
 private:
 	float rury_x, gornaRura_y, dolnaRura_y;
 	Texture2D gornaRuraTekstura, dolnaRuraTekstura;
