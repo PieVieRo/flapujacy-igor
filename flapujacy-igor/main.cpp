@@ -49,6 +49,7 @@ int main(int argc, char* argv[]) {
 				igor.respawn();
 				rury = { };
 				czasDoRury = ruraSpawn;
+				wynik = 0;
 			}
 		}
 
@@ -70,6 +71,7 @@ int main(int argc, char* argv[]) {
 				if (igor.collision(rury[i]))
 					igor.die();
 				if (rury[i].checkOOB()) {
+					wynik++;
 					rury[i].unload();
 					rury.erase(rury.begin());
 				}
@@ -85,7 +87,7 @@ int main(int argc, char* argv[]) {
 			rury[i].draw();
 		}
 		igor.draw();
-
+		DrawText(std::to_string(wynik).c_str(), 100, 0, 128, BLACK);
 		EndDrawing();
 	}
 	CloseWindow();
