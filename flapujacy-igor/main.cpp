@@ -54,21 +54,24 @@ int main(int argc, char* argv[]) {
 			PHYSICS
 		*/
 		igor.move(deltaTime);
-		czasDoRury -= deltaTime;
-		if (czasDoRury <= 0) {
-			Image ruryImage = LoadImage("images/kajdanki.jpg");
-			Image ruryImageKopia = LoadImage("images/kajdanki.jpg");
-			rury.push_back(Pipes(180, &ruryImage, &ruryImageKopia));
-			czasDoRury = ruraSpawn;
-		}
-		for (int i = 0; i < rury.size(); i++) {
-			rury[i].move(deltaTime);
-			if (igor.collision(rury[i]))
-				igor.die();
-			if (rury[i].checkOOB()) {
-				rury[i].unload();
-				rury.erase(rury.begin());
-			} 
+		if (igor.isAlive()) {
+			czasDoRury -= deltaTime;
+			if (czasDoRury <= 0) {
+				Image ruryImage = LoadImage("images/kajdanki.jpg");
+				Image ruryImageKopia = LoadImage("images/kajdanki.jpg");
+				rury.push_back(Pipes(180, &ruryImage, &ruryImageKopia));
+				czasDoRury = ruraSpawn;
+			}
+
+			for (int i = 0; i < rury.size(); i++) {
+				rury[i].move(deltaTime);
+				if (igor.collision(rury[i]))
+					igor.die();
+				if (rury[i].checkOOB()) {
+					rury[i].unload();
+					rury.erase(rury.begin());
+				}
+			}
 		}
 		/*
 		*	DRAWING
