@@ -26,3 +26,7 @@ bool Pipes::checkOOB() {
 	return this->rury_x + 96 <= 0;
 }
 
+void Pipes::unload() {
+	UnloadTexture(gornaRuraTekstura);
+	UnloadTexture(dolnaRuraTekstura);
+}
