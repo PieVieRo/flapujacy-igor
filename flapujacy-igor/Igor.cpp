@@ -1,6 +1,6 @@
 #include "Igor.hpp"
 
-Igor::Igor(Texture2D igorTexture) : igorTexture(igorTexture), x(100), y(200), dead(false), momentum(0), gravity(350), maxDown(-500)
+Igor::Igor(Texture2D igorTexture) : igorTexture(igorTexture), x(100), y(200), dead(false), momentum(0), gravity(1000), maxDown(-500)
 {
 }
 
@@ -13,7 +13,7 @@ bool Igor::isAlive() {
 }
 
 void Igor::jump() {
-	this->momentum = 150;
+	this->momentum = 350;
 }
 
 void Igor::move(float deltaTime) {
@@ -33,7 +33,7 @@ bool Igor::collision(Pipes rura) {
 		return false;
 	}
 
-	return	!((this->y + 96 < rura.get_dolnaRura_y()) && (this->y > rura.get_dolnaRura_y() - 150));
+	return	!((this->y + 96 < rura.get_dolnaRura_y()) && (this->y > rura.get_dolnaRura_y() - 180));
 }
 
 void Igor::die() {

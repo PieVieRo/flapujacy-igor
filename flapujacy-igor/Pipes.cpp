@@ -5,12 +5,12 @@ Pipes::Pipes(int offset, Image* ruryImage, Image* ruryImageKopia)
 	// Obrazek gornej rury
 	ImageResize(ruryImage, 96, 20 + offset);
 	// obrazek dolnej rury
-	ImageResize(ruryImageKopia, 96, 720 - (20 + offset + 150));
+	ImageResize(ruryImageKopia, 96, 720 - (20 + offset +180));
 	this->gornaRuraTekstura = LoadTextureFromImage(*ruryImage);
 	this->dolnaRuraTekstura = LoadTextureFromImage(*ruryImageKopia);
 	this->rury_x = 1280;
 	this->gornaRura_y = 0;
-	this->dolnaRura_y = 20 + offset + 150;
+	this->dolnaRura_y = 20 + offset + 180;
 	UnloadImage(*ruryImage);
 	UnloadImage(*ruryImageKopia);
 }
