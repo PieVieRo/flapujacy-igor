@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
 
 	std::vector<Pipes> rury = { };
 
-	float czasDoRury = ruraSpawn;
+	float czasDoRury = 2.0f;
 
 	while (!WindowShouldClose()) {
 		float deltaTime = GetFrameTime();
