@@ -22,11 +22,13 @@ int main(int argc, char* argv[]) {
 	Image domImage = LoadImage("images/dom.jpg");
 	ImageResize(&domImage, SCREEN_WIDTH, SCREEN_HEIGHT);
 	Texture2D domTexture = LoadTextureFromImage(domImage);
+	UnloadImage(domImage);
 
 	Image igorImage = LoadImage("images/igor.png");
 	ImageResize(&igorImage, 96, 96);
 	SetWindowIcon(igorImage);
 	Igor igor(LoadTextureFromImage(igorImage));
+	UnloadImage(igorImage);
 
 	std::vector<Pipes> rury = { };
 
@@ -62,7 +64,7 @@ int main(int argc, char* argv[]) {
 		for (int i = 0; i < rury.size(); i++) {
 			rury[i].move(deltaTime);
 			if (rury[i].checkOOB()) {
-				std::cout << "hejka :D" << std::endl;
+				rury[i].unload();
 				rury.erase(rury.begin());
 			} 
 		}

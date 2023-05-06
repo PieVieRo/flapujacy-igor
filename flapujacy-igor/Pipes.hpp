@@ -8,6 +8,7 @@ public:
 	void draw();
 	float get_x();
 	bool checkOOB();
+	void unload();
 private:
 	float rury_x, gornaRura_y, dolnaRura_y;
 	Texture2D gornaRuraTekstura, dolnaRuraTekstura;

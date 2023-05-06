@@ -11,6 +11,8 @@ Pipes::Pipes(int offset, Image* ruryImage, Image* ruryImageKopia)
 	this->rury_x = 1280;
 	this->gornaRura_y = 0;
 	this->dolnaRura_y = 20 + offset + 180;
+	UnloadImage(*ruryImage);
+	UnloadImage(*ruryImageKopia);
 }
 
 void Pipes::move(float deltaTime) {
@@ -26,3 +28,7 @@ bool Pipes::checkOOB() {
 	return this->rury_x + 96 <= 0;
 }
 
+void Pipes::unload() {
+	UnloadTexture(gornaRuraTekstura);
+	UnloadTexture(dolnaRuraTekstura);
+}
