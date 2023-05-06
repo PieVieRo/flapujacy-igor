@@ -19,6 +19,8 @@ int main(int argc, char* argv[]) {
 	InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, u8"FLAPUJ¥CY IGOR");
 	SetTargetFPS(60);
 
+	srand(time(NULL));
+
 	Image domImage = LoadImage("images/dom.jpg");
 	ImageResize(&domImage, SCREEN_WIDTH, SCREEN_HEIGHT);
 	Texture2D domTexture = LoadTextureFromImage(domImage);
@@ -62,7 +64,7 @@ int main(int argc, char* argv[]) {
 			if (czasDoRury <= 0) {
 				Image ruryImage = LoadImage("images/kajdanki.jpg");
 				Image ruryImageKopia = LoadImage("images/kajdanki.jpg");
-				rury.push_back(Pipes(180, &ruryImage, &ruryImageKopia));
+				rury.push_back(Pipes((rand() * rand() + rand()) % 500, &ruryImage, &ruryImageKopia));
 				czasDoRury = ruraSpawn;
 			}
 

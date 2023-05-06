@@ -33,7 +33,7 @@ bool Igor::collision(Pipes rura) {
 		return false;
 	}
 
-	return	!((this->y + 96 < rura.get_dolnaRura_y()) && (this->y > rura.get_dolnaRura_y() - 180));
+	return	!((this->y + 96 < rura.get_dolnaRura_y()) && (this->y > rura.get_dolnaRura_y() - 150));
 }
 
 void Igor::die() {
