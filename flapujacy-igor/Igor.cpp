@@ -1,6 +1,6 @@
 #include "Igor.hpp"
 
-Igor::Igor(Texture2D igorTexture) : igorTexture(igorTexture), x(100), y(200), dead(false), momentum(0), gravity(200), maxDown(-500)
+Igor::Igor(Texture2D igorTexture) : igorTexture(igorTexture), x(100), y(200), dead(false), momentum(0), gravity(350), maxDown(-500)
 {
 }
 
