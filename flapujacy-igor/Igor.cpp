@@ -39,3 +39,9 @@ bool Igor::collision(Pipes rura) {
 void Igor::die() {
 	this->dead = true;
 }
+
+void Igor::respawn() {
+	this->y	       = 200;
+	this->momentum = 0;
+	this->dead     = false;
+}

@@ -11,7 +11,7 @@
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
 
-const float ruraSpawn = 50.0f;
+const float ruraSpawn = 5.0f;
 int wynik = 0;
 int najwyzszy = 0;
 
@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
 
 	std::vector<Pipes> rury = { };
 
-	float czasDoRury = 2;
+	float czasDoRury = ruraSpawn;
 
 	while (!WindowShouldClose()) {
 		float deltaTime = GetFrameTime();
@@ -46,7 +46,9 @@ int main(int argc, char* argv[]) {
 		}
 		else {
 			if (GetKeyPressed()) {
-
+				igor.respawn();
+				rury = { };
+				czasDoRury = ruraSpawn;
 			}
 		}
 

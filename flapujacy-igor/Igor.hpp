@@ -12,6 +12,7 @@ public:
 	void move(float deltaTime);
 	bool collision(Pipes rura);
 	void die();
+	void respawn();
 private:
 	Texture2D igorTexture;
 	float x, y;
